@@ -1,0 +1,43 @@
+/* Table of Contents
+1. Card Styles
+2. Media Queries
+*/
+
+/* 1. Card Styles */
+.card {
+  max-width: 420px;
+  background: rgba(255, 255, 255, 0.70);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(7.1px)
+}
+
+.custom-bg {
+  background-image: url("./background.png");
+  /* Image taken from https://i.redd.it/89afwhtwnm671.png */
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-attachment: fixed;
+  width: 100%;
+}
+
+/* 2. Media Queries */
+@media (max-width: 575.5px) {
+  .card {
+    margin: 0px !important;
+    margin-bottom: .5rem !important;
+  }
+
+  .ps-2{
+    padding: 0 !important;
+  }
+
+  .rounded-start-5 {
+    border-top-right-radius: var(--bs-border-radius-xxl) !important;
+    border-bottom-left-radius: 0px !important;
+  }
+
+  .rounded-end-5 {
+    border-bottom-left-radius: var(--bs-border-radius-xxl) !important;
+    border-top-right-radius: 0px !important;
+  }
+}
