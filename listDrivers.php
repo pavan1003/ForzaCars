@@ -1,6 +1,6 @@
 <?php
 // Include the database connection file
-include('reusable/conn.php');
+include('admin/reusable/conn.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -18,10 +18,12 @@ include('reusable/conn.php');
 </head>
 
 <body>
-    <!-- Include the navigation bar -->
-    <?php include('reusable/nav.php'); ?>
-    <!-- Include carFetch to get each drivers' car -->
-    <?php include('./reusable/carFetch.php'); ?>
+    <?php
+    // Include the navigation bar
+    include('reusable/nav.php');
+    // Include carFetch to get each drivers' car
+    include('admin/reusable/carFetch.php');
+    ?>
     <div class="container-fluid custom-bg">
         <div class="container">
             <div class="row">
@@ -35,7 +37,7 @@ include('reusable/conn.php');
                 <div class="col">
                     <?php
                     // Include functions file and display any messages
-                    include('inc/functions.php');
+                    include('admin/inc/functions.php');
                     get_message();
                     ?>
                 </div>
@@ -49,21 +51,21 @@ include('reusable/conn.php');
                 foreach ($drivers as $driver) { ?>
                     <div class="card m-2 p-0 rounded-5">
                         <div class="row g-0">
-                            <div class="col-md-8 col-sm-8">
+                            <div class="col-md-12 col-sm-12">
                                 <div class="card-body rounded-end-5">
-                                    <h5 class="card-title"><?php echo $driver['first_name']; ?></h5>
-                                    <h5 class="card-title"><?php echo $driver['last_name']; ?></h5>
+                                    <h5 class="card-title"><?php echo $driver['first_name'] . ' ' . $driver['last_name']; ?></h5>
                                     <div class="card-text"><strong>Age:</strong> <?php echo $driver['age']; ?></div>
                                     <div class="card-text"><strong>Country:</strong> <?php echo $driver['country']; ?></div>
                                     <div class="card-text"><strong>Team:</strong> <?php echo $driver['team']; ?></div>
                                     <div class="card-text"><strong>Years of Experience:</strong> <?php echo $driver['experience_years']; ?></div>
                                     <div class="card-text"><strong>Current Car:</strong> <?php
                                         // get the correct car to display for each driver 
-                                        foreach($carList as $car) {
+                                        foreach ($carList as $car) {
                                             if ($car['id'] == $driver['car_id']) {
                                                 echo $car['Name_and_model'];
                                             }
-                                        } ?></div>
+                                        } ?>
+                                    </div>
                                     <div class="row mt-3">
                                         <div class="col-sm-6">
                                             <!-- Form to update driver details -->

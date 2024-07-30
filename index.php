@@ -1,7 +1,3 @@
-<?php
-// Include the database connection file
-include('reusable/conn.php');
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -33,7 +29,7 @@ include('reusable/conn.php');
                 <div class="col">
                     <?php
                     // Include functions file and display any messages
-                    include('inc/functions.php');
+                    include('admin/inc/functions.php');
                     get_message();
                     ?>
                 </div>
@@ -41,11 +37,10 @@ include('reusable/conn.php');
             <div class="row justify-content-center align-items-center" data-masonry='{"percentPosition": true }'>
                 <?php
                 // Query to fetch all cars from the database
-                $query = 'SELECT * FROM forza_horizon_cars';
-                $cars = mysqli_query($connect, $query);
+                include('admin/reusable/carFetch.php');
 
                 // Loop through each car and display its details
-                foreach ($cars as $car) { ?>
+                foreach ($carList as $car) { ?>
                     <div class="card m-2 p-0 rounded-5">
                         <div class="row g-0">
                             <div class="col-md-4 col-sm-4 d-flex align-items-center justify-content-center rounded-start-5">
@@ -83,7 +78,7 @@ include('reusable/conn.php');
                                     <div class="row mt-3">
                                         <div class="col-sm-6">
                                             <!-- Form to update car details -->
-                                            <form action="update.php" method="GET">
+                                            <form action="admin/inc/updateCar.php" method="POST">
                                                 <input type="hidden" name="id" value="<?php echo $car['id']; ?>">
                                                 <button type="submit" class="btn btn-sm btn-outline-primary" name="updateCar">
                                                     Update
@@ -92,7 +87,7 @@ include('reusable/conn.php');
                                         </div>
                                         <div class="col-sm-6 text-end">
                                             <!-- Form to delete car -->
-                                            <form action="inc/deleteCar.php" method="GET">
+                                            <form action="admin/inc/deleteCar.php" method="GET">
                                                 <input type="hidden" name="id" value="<?php echo $car['id']; ?>">
                                                 <button type="submit" name="deleteCar" class="btn btn-sm btn-outline-danger">
                                                     Delete

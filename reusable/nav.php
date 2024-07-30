@@ -18,16 +18,16 @@
                 </li>
                 <!-- Drivers link -->
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="listDrivers.php">Drivers</a>
+                    <a class="nav-link" aria-current="page" href="listDrivers.php">Drivers</a>
                 </li>
                 <!-- Add New Car link -->
-                <li class="nav-item">
-                    <a class="nav-link" href="add.php">Add New Car</a>
-                </li>
+                <!-- <li class="nav-item">
+                    <a class="nav-link" href="./admin/pages/addCar.php">Add New Car</a>
+                </li> -->
                 <!-- Add new driver link -->
-                <li class="nav-item">
-                    <a class="nav-link" href="addNewDriver.php">Add New Driver</a>
-                </li>
+                <!-- <li class="nav-item">
+                    <a class="nav-link" href="./admin/pages/addNewDriver.php">Add New Driver</a>
+                </li> -->
             </ul>
         </div>
     </div>
