@@ -1,6 +1,6 @@
 <?php
 // Establish a connection to the MySQL database
-$connect = mysqli_connect('localhost', 'root', '', 'Http5225Week5-0NA');
+$connect = mysqli_connect('localhost', 'root', 'root', 'Http5225Week5-0NA');
 
 // Check if the connection was successful
 if (!$connect) {

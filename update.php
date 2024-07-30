@@ -34,7 +34,7 @@ $result = $car->fetch_assoc();
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col">
-                    <h1 class="display-4 mt-5 mb-5">Add New Forza Horizon 5 Car</h1>
+                    <h1 class="display-4 mt-5 mb-5">Update Forza Horizon 5 Car</h1>
                 </div>
             </div>
         </div>
