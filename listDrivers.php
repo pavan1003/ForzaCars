@@ -49,7 +49,7 @@ include('admin/reusable/conn.php');
                 $drivers = mysqli_query($connect, $query);
                 // Loop through each driver and display its details
                 foreach ($drivers as $driver) { ?>
-                    <div class="card m-2 p-0 rounded-5">
+                    <div class="card glassmorph m-2 p-0 rounded-5">
                         <div class="row g-0">
                             <div class="col-md-12 col-sm-12">
                                 <div class="card-body rounded-end-5">
@@ -58,33 +58,14 @@ include('admin/reusable/conn.php');
                                     <div class="card-text"><strong>Country:</strong> <?php echo $driver['country']; ?></div>
                                     <div class="card-text"><strong>Team:</strong> <?php echo $driver['team']; ?></div>
                                     <div class="card-text"><strong>Years of Experience:</strong> <?php echo $driver['experience_years']; ?></div>
-                                    <div class="card-text"><strong>Current Car:</strong> <?php
+                                    <div class="card-text"><strong>Current Car:</strong>
+                                        <?php
                                         // get the correct car to display for each driver 
                                         foreach ($carList as $car) {
                                             if ($car['id'] == $driver['car_id']) {
                                                 echo $car['Name_and_model'];
                                             }
                                         } ?>
-                                    </div>
-                                    <div class="row mt-3">
-                                        <div class="col-sm-6">
-                                            <!-- Form to update driver details -->
-                                            <form action="updateDriverData.php" method="GET">
-                                                <input type="hidden" name="id" value="<?php echo $driver['driver_id']; ?>">
-                                                <button type="submit" class="btn btn-sm btn-outline-primary" name="updateDriver">
-                                                    Update Driver
-                                                </button>
-                                            </form>
-                                        </div>
-                                        <div class="col-sm-6 text-end">
-                                            <!-- Form to delete a driver -->
-                                            <form action="inc/deleteDriver.php" method="GET">
-                                                <input type="hidden" name="driver_id" value="<?php echo $driver['driver_id']; ?>">
-                                                <button type="submit" name="deleteDriver" class="btn btn-sm btn-outline-danger">
-                                                    Delete Driver
-                                                </button>
-                                            </form>
-                                        </div>
                                     </div>
                                 </div>
                             </div>

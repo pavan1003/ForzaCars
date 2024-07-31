@@ -1,7 +1,7 @@
 <?php
 
 //Check Login
-include('../inc/functions.php');
+include('inc/functions.php');
 secure();
 
 // Include the database connection file
@@ -25,7 +25,7 @@ $result = $car->fetch_assoc();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Forza Horizon 5 Cars</title>
     <!-- Favicon for the page taken from https://www.flaticon.com/free-icon/3d-car_10490228?term=car&page=3&position=67&origin=tag&related_id=10490228-->
-    <link rel="icon" href="public/logo.png" type="image/gif">
+    <link rel="icon" href="../public/logo.png" type="image/gif">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </head>
@@ -33,7 +33,7 @@ $result = $car->fetch_assoc();
 <body>
     <?php
     // Include the navigation bar
-    include('../reusable/nav.php');
+    include('reusable/adminNav.php');
     ?>
     <div class="container-fluid">
         <div class="container">
@@ -48,7 +48,7 @@ $result = $car->fetch_assoc();
     <div class="container-fluid mb-5">
         <div class="container">
             <!-- Form to update car details -->
-            <form action="../inc/updateCar.php" method="POST">
+            <form action="inc/updateCar.php" method="POST">
                 <!-- Hidden input to store car ID -->
                 <input type="hidden" value="<?php echo $id ?>" name="id">
                 <div class="row justify-content-center">

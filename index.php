@@ -41,11 +41,11 @@
 
                 // Loop through each car and display its details
                 foreach ($carList as $car) { ?>
-                    <div class="card m-2 p-0 rounded-5">
+                    <div class="card glassmorph m-2 p-0 rounded-5">
                         <div class="row g-0">
                             <div class="col-md-4 col-sm-4 d-flex align-items-center justify-content-center rounded-start-5">
                                 <!-- Display the car image, replacing '/side/' with '/big/' in the URL to enhace its quality-->
-                                <img src="<?php echo str_replace('/side/', '/big/', $car['Car_Image']); ?>" class="img-fluid rounded-5 ps-2" alt="Image of <?php echo $car['Name_and_model']; ?>">
+                                <img src="<?php echo $car['Car_Image'];?>" class="img-fluid rounded-5 ps-2" alt="Image of <?php echo $car['Name_and_model']; ?>">
                             </div>
                             <div class="col-md-8 col-sm-8">
                                 <div class="card-body rounded-end-5">
@@ -75,26 +75,6 @@
                                             </div>
                                         </li>
                                     </ul>
-                                    <div class="row mt-3">
-                                        <div class="col-sm-6">
-                                            <!-- Form to update car details -->
-                                            <form action="admin/inc/updateCar.php" method="POST">
-                                                <input type="hidden" name="id" value="<?php echo $car['id']; ?>">
-                                                <button type="submit" class="btn btn-sm btn-outline-primary" name="updateCar">
-                                                    Update
-                                                </button>
-                                            </form>
-                                        </div>
-                                        <div class="col-sm-6 text-end">
-                                            <!-- Form to delete car -->
-                                            <form action="admin/inc/deleteCar.php" method="GET">
-                                                <input type="hidden" name="id" value="<?php echo $car['id']; ?>">
-                                                <button type="submit" name="deleteCar" class="btn btn-sm btn-outline-danger">
-                                                    Delete
-                                                </button>
-                                            </form>
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
                         </div>

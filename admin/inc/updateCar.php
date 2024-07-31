@@ -47,7 +47,7 @@ if (isset($_POST['updateCar']) && isset($_SESSION['id'])) {
         // Set a success message
         set_message('Car was updated successfully!', 'success');
         // Redirect to the index page
-        header("Location: ../index.php");
+        header("Location: ../listCars.php");
     } else {
         // Output an error message if the query failed
         echo "Failed: " . mysqli_error($connect);

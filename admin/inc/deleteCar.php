@@ -23,7 +23,7 @@ if (isset($_GET['deleteCar'])) {
         set_message('Car was deleted successfully!', 'danger');
 
         // Redirect to the main page
-        header('Location: ../index.php');
+        header('Location: ../listCars.php');
     } else {
         // Print the MySQL error if the query failed
         echo mysqli_error($connect);

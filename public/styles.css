@@ -4,7 +4,7 @@
 */
 
 /* 1. Card Styles */
-.card {
+.glassmorph {
   max-width: 420px;
   background: rgba(255, 255, 255, 0.70);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
@@ -20,6 +20,30 @@
   width: 100%;
 }
 
+.cars-card {
+  background-image: url("./cars_card_bg.jpg");
+  background-position: center;
+  background-size: cover;
+  height: 300px;
+  width: 100%;
+}
+
+.drivers-card {
+  background-image: url("./drivers_card_bg.jpg");
+  background-position: top;
+  background-size: cover;
+  height: 300px;
+  width: 100%;
+}
+
+.cars-card .card-title, .drivers-card .card-title {
+  margin: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+}
+
 /* 2. Media Queries */
 @media (max-width: 575.5px) {
   .card {
@@ -27,7 +51,7 @@
     margin-bottom: .5rem !important;
   }
 
-  .ps-2{
+  .ps-2 {
     padding: 0 !important;
   }
 

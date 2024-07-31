@@ -1,5 +1,7 @@
 <?php
 
+define('BASE_URL', 'http://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['SCRIPT_NAME']) . '/');
+
 // Start the session
 session_start();
 
@@ -10,6 +12,16 @@ function secure()
 {
   if (!isset($_SESSION['id'])) {
     header('Location: ../index.php');
+  }
+}
+
+/**
+ * Function to check login status
+ */
+function autoLogin()
+{
+  if (isset($_SESSION['id']) && isset($_SESSION['username']) && isset($_SESSION['first_name']) && isset($_SESSION['last_name'])) {
+    header('Location: ../admin/dashboard.php');
   }
 }
 
