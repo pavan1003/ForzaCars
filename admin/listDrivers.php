@@ -91,7 +91,7 @@ secure();
                                         </div>
                                         <div class="col-sm-3 text-end">
                                             <!-- Form to delete a driver -->
-                                            <form action="inc/deleteDriver.php" method="GET">
+                                            <form action="deleteDriverConfirm.php" method="GET">
                                                 <input type="hidden" name="driver_id" value="<?php echo $driver['driver_id']; ?>">
                                                 <button type="submit" name="deleteDriver" class="btn btn-sm btn-danger">
                                                     Delete

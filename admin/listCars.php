@@ -100,7 +100,7 @@ secure();
                     </div>
                     <div class="col-sm-4 text-end">
                       <!-- Form to delete car -->
-                      <form action="inc/deleteCar.php" method="GET">
+                      <form action="deleteCarConfirm.php" method="GET">
                         <input type="hidden" name="id" value="<?php echo $car['id']; ?>">
                         <button type="submit" name="deleteCar" class="btn btn-sm btn-danger">
                           Delete

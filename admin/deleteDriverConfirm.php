@@ -62,7 +62,7 @@ $result = $driver->fetch_assoc();
         <p><strong>Team:</strong> <?php echo $result['team']; ?></p>
         <p><strong>Years of Experience:</strong> <?php echo $result['experience_years']; ?></p>
 
-        <form action="deleteDriver.php" method="POST">
+        <form action="inc/deleteDriver.php" method="GET">
           <input type="hidden" name="driver_id" value="<?php echo $driver_id; ?>">
           <button type="submit" class="btn btn-danger" name="deleteDriver">Yes, Delete</button>
           <a href="viewDriver.php?id=<?php echo $result['car_id']; ?>" class="btn btn-secondary">Cancel</a>

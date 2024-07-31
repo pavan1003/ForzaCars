@@ -63,7 +63,7 @@ $result = $driver->fetch_assoc();
         <p><strong>Weight:</strong> <?php echo $result['Weight_lbs']; ?> lbs</p>
         <p><strong>Drive Type:</strong> <?php echo $result['Drive_Type']; ?></p>
 
-        <form action="deleteCar.php" method="POST">
+        <form action="inc/deleteCar.php" method="GET">
           <input type="hidden" name="id" value="<?php echo $id; ?>">
           <button type="submit" class="btn btn-danger" name="deleteCar">Yes, Delete</button>
           <a href="viewCar.php?id=<?php echo $id; ?>" class="btn btn-secondary">Cancel</a>
