@@ -48,7 +48,7 @@ $result = $car->fetch_assoc();
     <div class="container-fluid mb-5">
         <div class="container">
             <!-- Form to update car details -->
-            <form action="inc/updateCar.php" method="POST">
+            <form action="inc/updateCar.php" method="POST" enctype="multipart/form-data">
                 <!-- Hidden input to store car ID -->
                 <input type="hidden" value="<?php echo $id ?>" name="id">
                 <div class="row justify-content-center">
@@ -115,6 +115,21 @@ $result = $car->fetch_assoc();
                         </div>
                     </div>
                 </div>
+                <div class="row justify-content-center">
+                    <div class="col-md-4 col-sm-12">
+                        <div class="mb-3">
+                            <label for="video_id" class="form-label">YouTube Video ID</label>
+                            <input type="text" class="form-control" id="video_id" name="video_id" value="<?php echo $result['Video_ID']; ?>">
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-12">
+                        <div class="mb-3">
+                            <label for="carSound" class="form-label">Car Sound (Upload)</label>
+                            <input type="file" class="form-control" id="carSound" name="carSound" accept="audio/mp3">
+                        </div>
+                    </div>
+                </div>
+                <!-- Submit button -->
                 <div class="row justify-content-center">
                     <div class="col-6 d-flex justify-content-center mb-3">
                         <button type="submit" class="btn btn-primary" name="updateCar">Update Car</button>

@@ -33,7 +33,7 @@ secure();
     <div class="container-fluid mb-5">
         <div class="container">
             <!-- Form to add a new car -->
-            <form action="inc/addCar.php" method="POST">
+            <form action="inc/addCar.php" method="POST" enctype="multipart/form-data">
                 <div class="row justify-content-center">
                     <!-- Car details input fields -->
                     <div class="col-md-4 col-sm-12">
@@ -96,6 +96,20 @@ secure();
                         <div class="mb-3">
                             <label for="imageUrl" class="form-label">Image Url: </label>
                             <input type="text" class="form-control" id="imageUrl" name="imageUrl">
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-md-4 col-sm-12">
+                        <div class="mb-3">
+                            <label for="videoId" class="form-label">YouTube Video ID</label>
+                            <input type="text" class="form-control" id="videoId" name="videoId">
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-12">
+                        <div class="mb-3">
+                            <label for="carSound" class="form-label">Car Sound (Audio File)</label>
+                            <input type="file" class="form-control" id="carSound" name="carSound" accept="audio/mp3">
                         </div>
                     </div>
                 </div>

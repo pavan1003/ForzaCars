@@ -65,6 +65,7 @@ $result = $car->fetch_assoc();
               <div class="card-text"><strong>HP:</strong> <?php echo isset($result['Horse_Power']) && $result['Horse_Power'] != '' ? $result['Horse_Power'] : '0'; ?></div>
               <div class="card-text"><strong>Weight:</strong> <?php echo isset($result['Weight_lbs']) && $result['Weight_lbs'] != '' ? $result['Weight_lbs'] : '0'; ?> lbs</div>
               <div class="card-text"><strong>Drive Type:</strong> <?php echo isset($result['Drive_Type']) && $result['Drive_Type'] != '' ? $result['Drive_Type'] : '-'; ?></div>
+
               <ul class="list-unstyled mb-1">
                 <li>Speed: <?php echo isset($result['speed']) && $result['speed'] != '' ? $result['speed'] : '0'; ?>
                   <div class="progress" aria-valuenow="<?php echo isset($result['speed']) && $result['speed'] != '' ? $result['speed'] : '0'; ?>" aria-valuemin="0" aria-valuemax="10">
@@ -94,6 +95,26 @@ $result = $car->fetch_assoc();
                 <div class="card-text"><strong>Driver's Years of Experience:</strong> <?php echo isset($result['experience_years']) && $result['experience_years'] != '' ? $result['experience_years'] : '0'; ?></div>
               <?php } else { ?>
                 <div class="card-text text-danger"><strong>No driver information available for this car.</strong></div>
+              <?php } ?>
+              <!-- YouTube Video -->
+              <?php if (isset($result['Video_ID']) && !empty($result['Video_ID'])) { ?>
+                <h3 class="mt-4">Car Video:</h3>
+                <div class="embed-responsive embed-responsive-16by9">
+                  <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/<?php echo $result['Video_ID']; ?>" allowfullscreen></iframe>
+                </div>
+              <?php } else { ?>
+                <div class="card-text text-danger"><strong>No video available for this car.</strong></div>
+              <?php } ?>
+
+              <!-- Playable Audio -->
+              <?php if (isset($result['Car_Sound']) && !empty($result['Car_Sound'])) { ?>
+                <h3 class="mt-4">Car Engine Sound:</h3>
+                <audio controls>
+                  <source src="../uploads/car_sounds/<?php echo $result['Car_Sound']; ?>" type="audio/mpeg">
+                  Your browser does not support the audio element.
+                </audio>
+              <?php } else { ?>
+                <div class="card-text text-danger"><strong>No audio available for this car.</strong></div>
               <?php } ?>
 
               <?php if (isset($_SESSION['id'])) { ?>

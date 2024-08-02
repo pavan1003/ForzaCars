@@ -6,7 +6,7 @@ include('admin/reusable/conn.php');
 $id = $_GET['id'];
 
 // Create a SQL query to select the car details based on the provided ID
-$query = "SELECT fhc.*, d.* FROM forza_horizon_cars fhc JOIN drivers d ON fhc.id = d.car_id WHERE fhc.id = '$id'";
+$query = "SELECT fhc.*, d.* FROM forza_horizon_cars fhc LEFT JOIN drivers d ON fhc.id = d.car_id WHERE fhc.id = '$id'";
 
 // Execute the query and fetch the result
 $car = mysqli_query($connect, $query);
@@ -92,6 +92,27 @@ $result = $car->fetch_assoc();
                 <div class="card-text"><strong>Driver's Years of Experience:</strong> <?php echo isset($result['experience_years']) && $result['experience_years'] != '' ? $result['experience_years'] : '0'; ?></div>
               <?php } else { ?>
                 <div class="card-text text-danger"><strong>No driver information available for this car.</strong></div>
+              <?php } ?>
+
+              <!-- YouTube Video -->
+              <?php if (isset($result['Video_ID']) && !empty($result['Video_ID'])) { ?>
+                <h3 class="mt-4">Car Video:</h3>
+                <div class="embed-responsive embed-responsive-16by9">
+                  <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/<?php echo $result['Video_ID']; ?>" allowfullscreen></iframe>
+                </div>
+              <?php } else { ?>
+                <div class="card-text text-danger"><strong>No video available for this car.</strong></div>
+              <?php } ?>
+
+              <!-- Playable Audio -->
+              <?php if (isset($result['Car_Sound']) && !empty($result['Car_Sound'])) { ?>
+                <h3 class="mt-4">Car Engine Sound:</h3>
+                <audio controls>
+                  <source src="uploads/car_sounds/<?php echo $result['Car_Sound']; ?>" type="audio/mpeg">
+                  Your browser does not support the audio element.
+                </audio>
+              <?php } else { ?>
+                <div class="card-text text-danger"><strong>No audio available for this car.</strong></div>
               <?php } ?>
             </div>
           </div>
