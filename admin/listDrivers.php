@@ -56,19 +56,37 @@ secure();
                         <div class="row g-0">
                             <div class="col-md-12 col-sm-12">
                                 <div class="card-body rounded-end-5">
-                                    <h5 class="card-title"><?php echo $driver['first_name'] . ' ' . $driver['last_name']; ?></h5>
-                                    <div class="card-text"><strong>Age:</strong> <?php echo $driver['age']; ?></div>
-                                    <div class="card-text"><strong>Country:</strong> <?php echo $driver['country']; ?></div>
-                                    <div class="card-text"><strong>Team:</strong> <?php echo $driver['team']; ?></div>
-                                    <div class="card-text"><strong>Years of Experience:</strong> <?php echo $driver['experience_years']; ?></div>
+                                    <h5 class="card-title">
+                                        <?php
+                                        echo isset($driver['first_name']) && $driver['first_name'] != '' ? $driver['first_name'] : '-';
+                                        echo ' ';
+                                        echo isset($driver['last_name']) && $driver['last_name'] != '' ? $driver['last_name'] : '-';
+                                        ?>
+                                    </h5>
+                                    <div class="card-text"><strong>Age:</strong>
+                                        <?php echo isset($driver['age']) && $driver['age'] != '' ? $driver['age'] : '0'; ?>
+                                    </div>
+                                    <div class="card-text"><strong>Country:</strong>
+                                        <?php echo isset($driver['country']) && $driver['country'] != '' ? $driver['country'] : '-'; ?>
+                                    </div>
+                                    <div class="card-text"><strong>Team:</strong>
+                                        <?php echo isset($driver['team']) && $driver['team'] != '' ? $driver['team'] : '-'; ?>
+                                    </div>
+                                    <div class="card-text"><strong>Years of Experience:</strong>
+                                        <?php echo isset($driver['experience_years']) && $driver['experience_years'] != '' ? $driver['experience_years'] : '0'; ?>
+                                    </div>
                                     <div class="card-text"><strong>Current Car:</strong>
                                         <?php
                                         // get the correct car to display for each driver 
+                                        $carName = '-'; // Default value
                                         foreach ($carList as $car) {
                                             if ($car['id'] == $driver['car_id']) {
-                                                echo $car['Name_and_model'];
+                                                $carName = isset($car['Name_and_model']) && $car['Name_and_model'] != '' ? $car['Name_and_model'] : '-';
+                                                break; // Found the matching car, no need to continue loop
                                             }
-                                        } ?>
+                                        }
+                                        echo $carName;
+                                        ?>
                                     </div>
                                     <div class="row mt-3">
                                         <div class="col-sm-3">

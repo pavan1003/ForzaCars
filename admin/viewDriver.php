@@ -57,34 +57,51 @@ $result = $driver->fetch_assoc();
         <div class="row g-0">
           <div class="col-md-12 col-sm-12">
             <div class="card-body rounded-end-5">
-              <h2 class="card-text"><strong>Driver Name:</strong> <?php echo $result['first_name'] . ' ' . $result['last_name']; ?></h2>
-              <div class="card-text"><strong>Age:</strong> <?php echo $result['age']; ?></div>
-              <div class="card-text"><strong>Country:</strong> <?php echo $result['country']; ?></div>
-              <div class="card-text"><strong>Team:</strong> <?php echo $result['team']; ?></div>
-              <div class="card-text"><strong>Years of Experience:</strong> <?php echo $result['experience_years']; ?></div>
-              <h3 class="card-text"><strong>Current Car:</strong><?php echo $result['Name_and_model']; ?></h3>
-              <div class="card-text"><strong>Car Type:</strong><?php echo $result['Model_type']; ?></div>
-              <div class="card-text"><strong>In Game Price:</strong> <?php echo $result['In_Game_Price']; ?></div>
-              <div class="card-text"><strong>HP:</strong> <?php echo $result['Horse_Power']; ?></div>
-              <div class="card-text"><strong>Weight:</strong> <?php echo $result['Weight_lbs']; ?> lbs</div>
-              <div class="card-text"><strong>Drive Type:</strong> <?php echo $result['Drive_Type']; ?></div>
+              <h2 class="card-text"><strong>Driver Name:</strong>
+                <?php
+                echo (isset($result['first_name']) && $result['first_name'] != '' ? $result['first_name'] : '-') . ' ' .
+                  (isset($result['last_name']) && $result['last_name'] != '' ? $result['last_name'] : '-');
+                ?>
+              </h2>
+              <div class="card-text"><strong>Age:</strong> <?php echo isset($result['age']) && $result['age'] != '' ? $result['age'] : '0'; ?></div>
+              <div class="card-text"><strong>Country:</strong> <?php echo isset($result['country']) && $result['country'] != '' ? $result['country'] : '-'; ?></div>
+              <div class="card-text"><strong>Team:</strong> <?php echo isset($result['team']) && $result['team'] != '' ? $result['team'] : '-'; ?></div>
+              <div class="card-text"><strong>Years of Experience:</strong> <?php echo isset($result['experience_years']) && $result['experience_years'] != '' ? $result['experience_years'] : '0'; ?></div>
+              <h3 class="card-text"><strong>Current Car:</strong>
+                <?php echo isset($result['Name_and_model']) && $result['Name_and_model'] != '' ? $result['Name_and_model'] : '-'; ?>
+              </h3>
+              <div class="card-text"><strong>Car Type:</strong>
+                <?php echo isset($result['Model_type']) && $result['Model_type'] != '' ? $result['Model_type'] : '-'; ?>
+              </div>
+              <div class="card-text"><strong>Car In Game Price:</strong>
+                <?php echo isset($result['In_Game_Price']) && $result['In_Game_Price'] != '' ? $result['In_Game_Price'] : '0'; ?>
+              </div>
+              <div class="card-text"><strong>Car HP:</strong>
+                <?php echo isset($result['Horse_Power']) && $result['Horse_Power'] != '' ? $result['Horse_Power'] : '0'; ?>
+              </div>
+              <div class="card-text"><strong>Car Weight:</strong>
+                <?php echo isset($result['Weight_lbs']) && $result['Weight_lbs'] != '' ? $result['Weight_lbs'] : '0'; ?> lbs
+              </div>
+              <div class="card-text"><strong>Car Drive Type:</strong>
+                <?php echo isset($result['Drive_Type']) && $result['Drive_Type'] != '' ? $result['Drive_Type'] : '-'; ?>
+              </div>
               <ul class="list-unstyled mb-1">
-                <li>Speed: <?php echo $result['speed']; ?>
-                  <div class="progress" aria-valuenow="<?php echo $result['speed']; ?>" aria-valuemin="0" aria-valuemax="10">
-                    <!-- Display speed progress bar -->
-                    <div class="progress-bar progress-bar-striped progress-bar-animated bg-danger" role="progressbar" style="width: <?php echo ($result['speed'] / 10) * 100; ?>%;"></div>
+                <li>Speed:
+                  <?php echo isset($result['speed']) && $result['speed'] != '' ? $result['speed'] : '0'; ?>
+                  <div class="progress" aria-valuenow="<?php echo isset($result['speed']) && $result['speed'] != '' ? $result['speed'] : '0'; ?>" aria-valuemin="0" aria-valuemax="10">
+                    <div class="progress-bar progress-bar-striped progress-bar-animated bg-danger" role="progressbar" style="width: <?php echo (isset($result['speed']) && $result['speed'] != '' ? $result['speed'] / 10 : 0) * 100; ?>%;"></div>
                   </div>
                 </li>
-                <li>Handling: <?php echo $result['handling']; ?>
-                  <div class="progress" aria-valuenow="<?php echo $result['handling']; ?>" aria-valuemin="0" aria-valuemax="10">
-                    <!-- Display handling progress bar -->
-                    <div class="progress-bar progress-bar-striped progress-bar-animated bg-warning" role="progressbar" style="width: <?php echo ($result['handling'] / 10) * 100; ?>%;"></div>
+                <li>Handling:
+                  <?php echo isset($result['handling']) && $result['handling'] != '' ? $result['handling'] : '0'; ?>
+                  <div class="progress" aria-valuenow="<?php echo isset($result['handling']) && $result['handling'] != '' ? $result['handling'] : '0'; ?>" aria-valuemin="0" aria-valuemax="10">
+                    <div class="progress-bar progress-bar-striped progress-bar-animated bg-warning" role="progressbar" style="width: <?php echo (isset($result['handling']) && $result['handling'] != '' ? $result['handling'] / 10 : 0) * 100; ?>%;"></div>
                   </div>
                 </li>
-                <li>Acceleration: <?php echo $result['acceleration']; ?>
-                  <div class="progress" aria-valuenow="<?php echo $result['acceleration']; ?>" aria-valuemin="0" aria-valuemax="10">
-                    <!-- Display acceleration progress bar -->
-                    <div class="progress-bar progress-bar-striped progress-bar-animated bg-info" role="progressbar" style="width: <?php echo ($result['acceleration'] / 10) * 100; ?>%;"></div>
+                <li>Acceleration:
+                  <?php echo isset($result['acceleration']) && $result['acceleration'] != '' ? $result['acceleration'] : '0'; ?>
+                  <div class="progress" aria-valuenow="<?php echo isset($result['acceleration']) && $result['acceleration'] != '' ? $result['acceleration'] : '0'; ?>" aria-valuemin="0" aria-valuemax="10">
+                    <div class="progress-bar progress-bar-striped progress-bar-animated bg-info" role="progressbar" style="width: <?php echo (isset($result['acceleration']) && $result['acceleration'] != '' ? $result['acceleration'] / 10 : 0) * 100; ?>%;"></div>
                   </div>
                 </li>
               </ul>

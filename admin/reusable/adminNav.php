@@ -3,7 +3,7 @@
   <div class="container-fluid mx-5">
     <!-- Brand Logo taken from https://www.flaticon.com/free-icon/3d-car_10490228?term=car&page=3&position=67&origin=tag&related_id=10490228 and Name -->
     <a class="navbar-brand" href="../index.php">
-      Forza Horizon Cars Admin
+      <img src="../public/logo.png" class="pe-2" alt="logo" width="50px">Forza Horizon Cars Admin
     </a>
     <!-- Navbar links -->
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
