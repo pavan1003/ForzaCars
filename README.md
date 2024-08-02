@@ -20,7 +20,7 @@ To set up the ForzaCars CMS on your local development environment, follow these 
    git clone https://github.com/pavan1003/forzacars.git
 2. **Navigate to the project directory:**
    ```bash
-   cd forzacars-cms
+   cd forzacars
 3. **Import the database schema:**
 Use the provided SQL file to set up your database.
 4.**Configure the database connection:**
